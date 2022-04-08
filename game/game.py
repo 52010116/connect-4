@@ -15,3 +15,9 @@ class Field:
 
     def current_state(self):
         return self.board
+
+    def exit_game(self, input):
+        if input == "q" or input == "Q":
+            return True
+        else:
+            return False
