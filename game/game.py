@@ -21,3 +21,22 @@ class Field:
             return True
         else:
             return False
+
+    def check_legal_move(self, input):
+        if not isinstance(input, int):
+            print("Wrong type of input")
+            return True
+
+        if 0 > input:
+            print("Your input is to small!")
+            return True
+
+        if input > 6:
+            print("Your input is to large!")
+            return True
+
+        if self.board[0][input] == "_":
+            return False
+        else:
+            print("Sorry, the column is already full")
+            return True
