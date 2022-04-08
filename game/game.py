@@ -12,3 +12,6 @@ class Field:
         ]
         self.column = 7
         self.row = 6
+
+    def current_state(self):
+        return self.board
