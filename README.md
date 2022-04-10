@@ -7,3 +7,5 @@ in which the discs stack up on each other. Every player has 21 discs. The goal o
 (horizontally, vertically or diagonally). In case there are no more discs left and neither player has won it is called a stalemate and the game is over.
 
 ## How to start the game ##
+
+The first step is to download the game.py file from GitHub and open it in a Python-Editor like Pycharm. Once the code is opened in your editor, just press the “run” button which executes the code. After that just follow the instructions displayed on the terminal and have fun playing Connect Four!
