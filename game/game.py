@@ -40,3 +40,14 @@ class Field:
         else:
             print("Sorry, the column is already full")
             return True
+
+    def set_move(self, Symbol):
+
+        for i in range(5, -1, -1):
+            if self.board[i][X] == "__":
+                self.board[i][X] = Symbol
+                break
+            else:
+                continue
+
+
