@@ -58,7 +58,7 @@ class Field:
     def print_field(self):
         for row in self.board:
             for i in row:
-                print(f"i")
+                print(f"{i} ", end="")
             print()
         num = ["0", "1", "2", "3", "4", "5", "6"]
         print(' '.join(num))
