@@ -1,3 +1,6 @@
+from random import randint
+
+
 class Field:
 
     def __init__(self):
@@ -83,3 +86,21 @@ class Field:
         num = ["0", "1", "2", "3", "4", "5", "6"]
         print(' '.join(num))
         print("")
+
+
+if __name__ == "__main__":
+    field = Field()
+
+    def ai_move(field):
+        while True:
+
+            col = randint(0,6)
+            if not field.check_legal_move_check(col):
+                field.set_move(col,"A")
+                if field.check.win("A"):
+                    field.print_field()
+                    print("AI Won")
+                    quit()
+                break
+            else:
+                continue
