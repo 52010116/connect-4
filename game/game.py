@@ -1,4 +1,3 @@
-
 class Field:
 
     def __init__(self):
@@ -51,9 +50,18 @@ class Field:
                 continue
 
     def check_win(self, Symbol):
-        pass
 
+        for x in range(self.column - 3):
+            for y in range(self.row):
+                if self.board[y][x] == Symbol and self.board[y][x + 1] == Symbol and self.board[y][x + 2] == Symbol and \
+                        self.board[y][x + 3] == Symbol:
+                    return True
 
+        for x in range(self.column):
+            for y in range(self.row - 3):
+                if self.board[y][x] == Symbol and self.board[y + 1][x] == Symbol and self.board[y + 2][x] == Symbol and \
+                        self.board[y + 3][x] == Symbol:
+                    return True
 
     def print_field(self):
         for row in self.board:
@@ -63,4 +71,3 @@ class Field:
         num = ["0", "1", "2", "3", "4", "5", "6"]
         print(' '.join(num))
         print("")
-
