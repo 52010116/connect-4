@@ -63,6 +63,18 @@ class Field:
                         self.board[y + 3][x] == Symbol:
                     return True
 
+        for x in range(self.column - 3):
+            for y in range(self.row - 3):
+                if self.board[y][x] == Symbol and self.board[y + 1][x + 1] == Symbol and self.board[y + 2][x + 2] == \
+                        Symbol and self.board[y + 3][x + 3] == Symbol:
+                    return True
+
+        for x in range(self.column - 3):
+            for y in range(3, self.row):
+                if self.board[y][x] == Symbol and self.board[y - 1][x + 1] == Symbol and self.board[y - 2][x + 2] == \
+                        Symbol and self.board[y - 3][x + 3] == Symbol:
+                    return True
+
     def print_field(self):
         for row in self.board:
             for i in row:
