@@ -104,3 +104,15 @@ if __name__ == "__main__":
                 break
             else:
                 continue
+
+    while True:
+        try:
+            p = int(input("Welcome to the game, do you want to play against AI (1) or another Player (2)?"))
+        except ValueError:
+            print("Please enter an Integer!")
+            continue
+        if p not in [1, 2] or not isinstance(p, int):
+            print("Please enter 1 or 2 as Integer!")
+            continue
+        else:
+            break
