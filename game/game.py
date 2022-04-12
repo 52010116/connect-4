@@ -116,3 +116,26 @@ if __name__ == "__main__":
             continue
         else:
             break
+
+    if p == 1:
+        print("AI-Game, if you want to exit the game enter q!")
+        while True:
+            field.print_field()
+            inp = input("Which column? ")
+            if isinstance(inp, str):
+                if field.exit_game(inp):
+                    print("Game is terminated!")
+                    quit()
+            try:
+                input_up = int(inp)
+            except ValueError:
+                print("Please enter q to quit or ent an Integer")
+                continue
+            if field.check_legal_move(input_up):
+                continue
+            field.set_move(input_up, "X")
+            if field.check_win("X"):
+                print("Player won!")
+                quit()
+            ai_move(field)
+            field.print_field()
