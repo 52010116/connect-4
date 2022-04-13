@@ -16,3 +16,15 @@ class MyTestCase(unittest.TestCase):
             ]
         self.assertEqual(test_field.current_state(), expected)
 
+    def test_exit_input(self):
+        test_field = Field()
+        input_uppercase = "Q"
+        input_lowercase = "q"
+        input_str_wrong = "k"
+        input_int_wrong = 1
+
+        self.assertEqual(test_field.exit_game(input_uppercase), True)
+        self.assertEqual(test_field.exit_game(input_lowercase), True)
+        self.assertEqual(test_field.exit_game(input_str_wrong), False)
+        self.assertEqual(test_field.exit_game(input_int_wrong), False)
+
