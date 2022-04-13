@@ -28,3 +28,16 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(test_field.exit_game(input_str_wrong), False)
         self.assertEqual(test_field.exit_game(input_int_wrong), False)
 
+    def test_legal_move_check(self):
+
+        test_field = Field()
+
+        # checks if input was int
+        input_str = "g"
+        self.assertEqual(test_field.check_legal_move(input_str), True)
+
+        # checks if input is out of range
+        input_to_small = -5
+        input_to_large = 8
+        self.assertEqual(test_field.check_legal_move(input_to_small), True)
+        self.assertEqual(test_field.check_legal_move(input_to_large), True)
