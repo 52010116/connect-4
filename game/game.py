@@ -1,4 +1,6 @@
 from random import randint
+import numpy as np
+from os import system, name
 
 
 class Field:
@@ -40,7 +42,7 @@ class Field:
         if self.board[0][input] == "_":
             return False
         else:
-            print("Sorry, the column is already full")
+            print("Sorry, the column is already full, please choose a different one!")
             return True
 
     def set_move(self, X, Symbol):
@@ -89,16 +91,16 @@ class Field:
 
 
 if __name__ == "__main__":
-    field = Field()
 
+    field = Field()
 
     def ai_move(field):
         while True:
 
             col = randint(0, 6)
-            if not field.check_legal_move_check(col):
+            if not field.check_legal_move(col):
                 field.set_move(col, "A")
-                if field.check.win("A"):
+                if field.check_win("A"):
                     field.print_field()
                     print("AI Won")
                     quit()
@@ -109,7 +111,7 @@ if __name__ == "__main__":
 
     while True:
         try:
-            p = int(input("Welcome to the game, do you want to play against AI (1) or another Player (2)?"))
+            p = int(input("Welcome to the game, do you want to play against AI (1) or another Player (2)? "))
         except ValueError:
             print("Please enter an Integer!")
             continue
@@ -120,7 +122,7 @@ if __name__ == "__main__":
             break
 
     if p == 1:
-        print("AI-Game, if you want to exit the game enter q!")
+        print("AI-Game, if you want to exit the game enter q! ")
         while True:
             field.print_field()
             inp = input("Which column? ")
@@ -131,7 +133,7 @@ if __name__ == "__main__":
             try:
                 input_up = int(inp)
             except ValueError:
-                print("Please enter q to quit or ent an Integer")
+                print("Please enter q to quit or ent an Integer ")
                 continue
             if field.check_legal_move(input_up):
                 continue
@@ -143,22 +145,22 @@ if __name__ == "__main__":
             field.print_field()
 
     if p == 2:
-        print("PvP X vs P, if you want to quit enter 'q'")
+        print("Player(X) vs Player(P), if you want to exit the game enter q! ")
         while True:
             # Player One (X)
             while True:
                 field.print_field()
                 inp = input("Player X choose a column: ")
                 if isinstance(inp, str):
-                    if field.exist_Game(inp):
+                    if field.exit_game(inp):
                         print("Game is terminated")
                         quit()
                 try:
-                    input = int(inp)
+                    input_up = int(inp)
                 except ValueError:
-                    print("please enter 'q' to quit or an Integer")
+                    print("please enter 'q' to quit or an Integer ")
                     continue
-                if field.legal_move_check(input_up):
+                if field.check_legal_move(input_up):
                     continue
                 field.set_move(input_up, "X")
                 if field.check_win("X"):
@@ -170,17 +172,17 @@ if __name__ == "__main__":
             # Player Two (P)
             while True:
                 field.print_field()
-                inp = input("Player X choose a column: ")
+                inp = input("Player P choose a column: ")
                 if isinstance(inp, str):
-                    if field.exist_Game(inp):
+                    if field.exit_game(inp):
                         print("Game is terminated")
                         quit()
                 try:
-                    input = int(inp)
+                    input_up = int(inp)
                 except ValueError:
                     print("please enter 'q' to quit or an Integer")
                     continue
-                if field.legal_move_check(input_up):
+                if field.check_legal_move(input_up):
                     continue
                 field.set_move(input_up, "P")
                 if field.check_win("P"):
