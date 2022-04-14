@@ -2,15 +2,18 @@
 
 ## Problem ##
 
-The adapter design pattern was invented for occasions when two interfaces have to communicate with each other but are not
-able to due to whatever reasons (e.g. different language or format). A non-programming example for that could be something 
-like Apple´s Lightning to 3.5 mm headphone adapter. 
+The adapter design pattern was invented for occasions when for example two classes have to communicate with each other
+but are not able to (e.g. different language or format). A non-programming example for that could be something like
+Apple´s Lightning to 3.5 mm headphone adapter. When you own regular headphones which are 3.5 mm you can not connect it
+to most Apple devices. Therefore the Lightning to 3.5 mm headphone adapter was invented.
 
 
 ## Solution ##
 
-Whenever two different interfaces need to communicate an adapter comes in handy. It acts like a translator or a converter. 
-Just like the Lightning to 3.5 mm adapter converts iPhone´s outlet into a socket which can be used with regular headphones. 
+Whenever two different systems, objects, classes or parties need to communicate an adapter comes in handy. It acts like
+a translator, interface or a converter. Just like the Lightning to 3.5 mm adapter converts iPhone´s outlet into a socket
+which can be used with regular headphones.The Adapter design pattern belongs to the structural pattern and is often
+referred to as wrapper.
 
 
 ## Example ##
@@ -24,7 +27,6 @@ Just like the Lightning to 3.5 mm adapter converts iPhone´s outlet into a socke
 3.	The Service represents a class that the Client wants to interact with but is not able to because of different interfaces.
 4.	The Adapter is a class which knows how to interact with the Client as well as the Service. In order to do so it carries 
     out the Clients interface while translating the Service´s commands into a format which can be understood by the Client.
-
 
 
 
