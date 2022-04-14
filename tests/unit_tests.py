@@ -105,3 +105,47 @@ class MyTestCase(unittest.TestCase):
             ]
         self.assertEqual(x, expected_field1)
         self.assertEqual(test_field4.check_legal_move(0), True)
+
+    def test_check_if_win(self):
+        field5 = Field()
+        for i in range(4):
+            field5.set_move(0,"X")
+
+        self.assertEqual(field5.check_win("X"), True)
+
+        field6 = Field()
+        for i in range(4):
+            field6.set_move(i, "X")
+
+        self.assertEqual(field6.check_win("X"), True)
+
+        field7 = Field()
+        field7.set_move(0, "X")
+        field7.set_move(1, "P")
+        field7.set_move(1, "X")
+        field7.set_move(2, "P")
+        field7.set_move(2, "X")
+        field7.set_move(2, "X")
+        field7.set_move(3, "P")
+        field7.set_move(3, "X")
+        field7.set_move(3, "P")
+        field7.set_move(3, "X")
+
+        self.assertEqual(field7.check_win("X"), True)
+
+        field8 = Field()
+        field8.set_move(6, "X")
+        field8.set_move(5, "P")
+        field8.set_move(5, "X")
+        field8.set_move(4, "P")
+        field8.set_move(4, "X")
+        field8.set_move(4, "X")
+        field8.set_move(3, "P")
+        field8.set_move(3, "X")
+        field8.set_move(3, "P")
+        field8.set_move(3, "X")
+
+        self.assertEqual(field8.check_win("X"), True)
+
+if __name__ == '__main__':
+    unittest.main()
