@@ -139,10 +139,11 @@ if __name__ == "__main__":
                 continue
             field.set_move(input_up, "X")
             if field.check_win("X"):
+                field.print_field()
                 print("Player won!")
                 quit()
             ai_move(field)
-            field.print_field()
+
 
     if p == 2:
         print("Player(X) vs Player(P), if you want to exit the game enter q! ")
@@ -164,9 +165,9 @@ if __name__ == "__main__":
                     continue
                 field.set_move(input_up, "X")
                 if field.check_win("X"):
+                    field.print_field()
                     print("Player X won")
                     quit()
-                field.print_field()
                 break
 
             # Player Two (P)
@@ -186,7 +187,7 @@ if __name__ == "__main__":
                     continue
                 field.set_move(input_up, "P")
                 if field.check_win("P"):
+                    field.print_field()
                     print("Player P won")
                     quit()
-                field.print_field()
                 break
