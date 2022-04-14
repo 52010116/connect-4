@@ -2,15 +2,16 @@
 
 ## Problem ##
 
-The adapter design pattern was invented for occasions when two interfaces have to communicate with each other but are not
-able to due to whatever reasons (e.g. different language or format). A non-programming example for that could be something 
-like Apple´s Lightning to 3.5 mm headphone adapter. 
+The adapter design pattern was invented for occasions when for example two classes have to communicate with each other
+but are not able to (e.g. different language or format). A non-programming example for that could be something like
+Apple´s Lightning to 3.5 mm headphone adapter.
 
 
 ## Solution ##
 
 Whenever two different interfaces need to communicate an adapter comes in handy. It acts like a translator or a converter. 
-Just like the Lightning to 3.5 mm adapter converts iPhone´s outlet into a socket which can be used with regular headphones. 
+Just like the Lightning to 3.5 mm adapter converts iPhone´s outlet into a socket which can be used with regular headphones.
+The Adapter design pattern belongs to the structural pattern and is often referred to as wrapper.
 
 
 ## Example ##
