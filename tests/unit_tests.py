@@ -13,7 +13,7 @@ class MyTestCase(unittest.TestCase):
             ["_", "_", "_", "_", "_", "_", "_"],
             ["_", "_", "_", "_", "_", "_", "_"],
             ["_", "_", "_", "_", "_", "_", "_"],
-            ]
+        ]
         self.assertEqual(test_field.current_state(), expected)
 
     def test_exit_input(self):
@@ -34,13 +34,19 @@ class MyTestCase(unittest.TestCase):
 
         # checks if input was int
         input_str = "g"
+        input_str_2 = "K"
         self.assertEqual(test_field.check_legal_move(input_str), True)
+        self.assertEqual(test_field.check_legal_move(input_str_2), True)
 
         # checks if input is out of range
         input_to_small = -5
+        input_to_small_2 = -1
         input_to_large = 8
+        input_to_large_2 = 7
         self.assertEqual(test_field.check_legal_move(input_to_small), True)
+        self.assertEqual(test_field.check_legal_move(input_to_small_2), True)
         self.assertEqual(test_field.check_legal_move(input_to_large), True)
+        self.assertEqual(test_field.check_legal_move(input_to_large_2), True)
 
     def test_set_move(self):
         test_field1 = Field()
@@ -80,3 +86,5 @@ class MyTestCase(unittest.TestCase):
             ["X", "_", "_", "_", "_", "_", "P"],
         ]
         self.assertEqual(test_field2.current_state(), expected)
+
+
