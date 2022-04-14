@@ -8,7 +8,7 @@
 
 ## Implementation of the game ##
 
-* The playing field is displayed with the “_” symbol. Underneath the field the columns 0-6 are displayed.
+* The playing field is displayed with the “_” symbol. Underneath the field the columns 0-6 are displayed. It is stored in a list.
 * In order to give the player the option to exit the game at any time, the “exit_game” was created, which checks input for “q” or “Q”. 
 * With the intention of letting the player only make valid inputs, “check_legal_move” was created to check if input is an Integer, if its between 0-6, and if the column is already filled.
 * If the input is valid “set_move” puts the symbol in the chosen column. The symbols stack up on each other until the column is full.
