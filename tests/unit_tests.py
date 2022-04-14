@@ -51,8 +51,8 @@ class MyTestCase(unittest.TestCase):
     def test_set_move(self):
         test_field1 = Field()
 
-        test_field1.set_move(0,"X")
-        expected =[
+        test_field1.set_move(0, "X")
+        exp = [
             ["_", "_", "_", "_", "_", "_", "_"],
             ["_", "_", "_", "_", "_", "_", "_"],
             ["_", "_", "_", "_", "_", "_", "_"],
@@ -60,7 +60,7 @@ class MyTestCase(unittest.TestCase):
             ["_", "_", "_", "_", "_", "_", "_"],
             ["X", "_", "_", "_", "_", "_", "_"],
         ]
-        self.assertEqual(test_field1.current_state(), expected)
+        self.assertEqual(test_field1.current_state(), exp)
 
         test_field2 = Field()
         test_field2.set_move(6, "P")
@@ -75,6 +75,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(test_field2.current_state(), expected)
 
         test_field3 = Field()
+
         test_field3.set_move(6, "P")
         test_field3.set_move(6, "X")
         expected = [
@@ -83,42 +84,45 @@ class MyTestCase(unittest.TestCase):
             ["_", "_", "_", "_", "_", "_", "_"],
             ["_", "_", "_", "_", "_", "_", "_"],
             ["_", "_", "_", "_", "_", "_", "X"],
-            ["X", "_", "_", "_", "_", "_", "P"],
+            ["_", "_", "_", "_", "_", "_", "P"],
         ]
-        self.assertEqual(test_field2.current_state(), expected)
-
+        self.assertEqual(test_field3.current_state(), expected)
 
     def test_legal_move_check2(self):
         test_field4 = Field()
         self.assertEqual(test_field4.check_legal_move(0), False)
 
         for i in range(6):
-            test_field4.set_move(0,"X"):
-            x = (test_field4.current_state())
-            expected_field1 =[
-                ["X", "_", "_", "_", "_", "_", "_"],
-                ["X", "_", "_", "_", "_", "_", "_"],
-                ["X", "_", "_", "_", "_", "_", "_"],
-                ["X", "_", "_", "_", "_", "_", "_"],
-                ["X", "_", "_", "_", "_", "_", "_"],
-                ["X", "_", "_", "_", "_", "_", "_"],
-            ]
+            test_field4.set_move(0, "X")
+
+        x = (test_field4.current_state())
+        expected_field1 = [
+            ["X", "_", "_", "_", "_", "_", "_"],
+            ["X", "_", "_", "_", "_", "_", "_"],
+            ["X", "_", "_", "_", "_", "_", "_"],
+            ["X", "_", "_", "_", "_", "_", "_"],
+            ["X", "_", "_", "_", "_", "_", "_"],
+            ["X", "_", "_", "_", "_", "_", "_"],
+        ]
         self.assertEqual(x, expected_field1)
         self.assertEqual(test_field4.check_legal_move(0), True)
 
     def test_check_if_win(self):
+        # vertical
         field5 = Field()
         for i in range(4):
             field5.set_move(0,"X")
 
         self.assertEqual(field5.check_win("X"), True)
 
+        # horizontal
         field6 = Field()
         for i in range(4):
             field6.set_move(i, "X")
 
         self.assertEqual(field6.check_win("X"), True)
 
+        # diagonal /
         field7 = Field()
         field7.set_move(0, "X")
         field7.set_move(1, "P")
@@ -133,6 +137,7 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(field7.check_win("X"), True)
 
+        # diagonal \
         field8 = Field()
         field8.set_move(6, "X")
         field8.set_move(5, "P")
@@ -146,6 +151,7 @@ class MyTestCase(unittest.TestCase):
         field8.set_move(3, "X")
 
         self.assertEqual(field8.check_win("X"), True)
+
 
 if __name__ == '__main__':
     unittest.main()
