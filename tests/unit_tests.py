@@ -41,3 +41,42 @@ class MyTestCase(unittest.TestCase):
         input_to_large = 8
         self.assertEqual(test_field.check_legal_move(input_to_small), True)
         self.assertEqual(test_field.check_legal_move(input_to_large), True)
+
+    def test_set_move(self):
+        test_field1 = Field()
+
+        test_field1.set_move(0,"X")
+        expected =[
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["X", "_", "_", "_", "_", "_", "_"],
+        ]
+            self.assertEqual(test_field1.current_state(), expected)
+
+        test_field2 = Field()
+        test_field2.set_move(6, "P")
+        expected = [
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "P"],
+        ]
+        self.assertEqual(test_field2.current_state(), expected)
+
+        test_field3 = Field()
+        test_field3.set_move(6, "P")
+        test_field3.set_move(6, "X")
+        expected = [
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "X"],
+            ["X", "_", "_", "_", "_", "_", "P"],
+        ]
+        self.assertEqual(test_field2.current_state(), expected)
