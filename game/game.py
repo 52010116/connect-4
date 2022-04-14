@@ -4,6 +4,11 @@ from os import system, name
 
 
 class Field:
+    """creates and prints playingfield
+    exits game if input is Q/q
+    checks if move is legal or not
+    checks if someone has won
+    """
 
     def __init__(self):
         self.board = [
@@ -91,8 +96,10 @@ class Field:
 
 
 if __name__ == "__main__":
+    """executes the game"""
 
     field = Field()
+
 
     def ai_move(field):
         while True:
@@ -110,6 +117,7 @@ if __name__ == "__main__":
 
 
     while True:
+        """asks player if he wants to play against AI or a Human"""
         try:
             p = int(input("Welcome to the game, do you want to play against AI (1) or another Player (2)? "))
         except ValueError:
@@ -143,7 +151,6 @@ if __name__ == "__main__":
                 print("Player won!")
                 quit()
             ai_move(field)
-
 
     if p == 2:
         print("Player(X) vs Player(P), if you want to exit the game enter q! ")
