@@ -51,6 +51,7 @@ class Field:
             return True
 
     def set_move(self, X, Symbol):
+        """ The function “set_move” puts Playersymbol into the chosen spot"""
 
         for i in range(5, -1, -1):
             if self.board[i][X] == "_":
@@ -60,6 +61,7 @@ class Field:
                 continue
 
     def check_win(self, Symbol):
+        """Every Round the Field gets checked for a winner"""
 
         for x in range(self.column - 3):
             for y in range(self.row):
@@ -96,12 +98,12 @@ class Field:
 
 
 if __name__ == "__main__":
-    """executes the game"""
 
     field = Field()
 
 
     def ai_move(field):
+        """Very basic AI with randint that a player can choose to play against"""
         while True:
 
             col = randint(0, 6)
@@ -130,6 +132,8 @@ if __name__ == "__main__":
             break
 
     if p == 1:
+        """Player chose AI Game and gets another chance to quit the game, otherwise the game continues until 
+        someone won"""
         print("AI-Game, if you want to exit the game enter q! ")
         while True:
             field.print_field()
@@ -153,6 +157,8 @@ if __name__ == "__main__":
             ai_move(field)
 
     if p == 2:
+        """Player chose PvP mode and gets another chance to quit the game otherwise the game continues until 
+        someone won"""
         print("Player(X) vs Player(P), if you want to exit the game enter q! ")
         while True:
             # Player One (X)
