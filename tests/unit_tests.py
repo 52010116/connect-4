@@ -111,7 +111,7 @@ class MyTestCase(unittest.TestCase):
         # vertical
         field5 = Field()
         for i in range(4):
-            field5.set_move(0,"X")
+            field5.set_move(0, "X")
 
         self.assertEqual(field5.check_win("X"), True)
 
