@@ -61,7 +61,8 @@ class Field:
                 continue
 
     def check_win(self, Symbol):
-        """Every Round the Field gets checked for a winner"""
+        """Every Round the Field gets checked for a winner. Horizontally, Certically
+        and Diagonally (twice for both possibilities)"""
 
         for x in range(self.column - 3):
             for y in range(self.row):
@@ -204,3 +205,5 @@ if __name__ == "__main__":
                     print("Player P won")
                     quit()
                 break
+
+"""For playing again you need to restart the game"""
